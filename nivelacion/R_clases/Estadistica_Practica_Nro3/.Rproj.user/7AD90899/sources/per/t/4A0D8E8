@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1556909814185.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "571764385",
+    "id" : "4A0D8E8",
+    "lastKnownWriteTime" : 1556915383,
+    "last_content_update" : 1556915383418,
+    "path" : "~/maestria_estadistica/Clase_03-05/scripts/Ejemplos.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "41,2",
+        "scrollLine" : "25",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

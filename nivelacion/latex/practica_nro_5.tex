@@ -1,0 +1,213 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{soul}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{selinput}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\SelectInputMappings{%
+  aacute={á},
+  ntilde={ñ},
+  Euro={€}
+}
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines,
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{Maestría en Estadística Aplicada}
+\newcommand\hwnumber{1}                  % <-- homework number
+\newcommand\NetIDa{Curso Nivelación - Ejercitación Nº5}           % <-- NetID of person #1
+\newcommand\NetIDb{Juan Pablo Rocha Amado}           % <-- NetID of person #2 (Comment this line out for problem sets)
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}                 % <-- Comment this line out for problem sets (make sure you are person #1)
+\chead{\textbf{\Large Unidad 3}}
+\rhead{\course \\ \today}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+
+\begin{document}
+
+\section*{Ejercitación Unidad 3}
+
+\begin{enumerate}
+
+
+    \item
+    \begin{enumerate}
+        \item
+            \begin{enumerate}[label=(\roman*)]
+                \item $ A'_{n,r} = n^{r}= 10^{4} = \textbf{10000} $
+                \item $ A_{n,r} = \frac{n!}{(n-r)!} =  \frac{10!}{(10-4)!} = \textbf{5040}$
+                \item $ A'_{n,r} = \frac{n!}{(n-r)!} = \frac{9!}{(9-4)!} = \textbf{3024}$
+            \end{enumerate}
+
+        \item
+            \begin{enumerate}[label=(\roman*)]
+                \item $ nCr = \frac{10!}{(10-7)!} = \textbf{120} $
+                \item $ nCr = \frac{6!}{(6-3)!} = \textbf{20} $
+            \end{enumerate}
+
+        \item \underline{Principio de la multiplicación}: $ 7^{4}\cdot5^{3}=\textbf{300125} $
+        \item $ A_{r,n}=\frac{n!}{(n-r)!}=\frac{25!}{(25-2)!}=\textbf{600} $
+    \end{enumerate}
+
+    \item
+        \begin{enumerate}
+            \item
+                E: Lanzar 2 dados al aire y observar los números de las caras superiores.\\
+                Espacio muestral discreto.\\
+                $ \\
+                \Omega =
+                \begin{bmatrix}
+                    1,1&2,1&3,1&4,1&5,1&6,1 \\
+                    1,2&2,2&3,2&4,2&5,2&6,2 \\
+                    1,3&2,3&3,3&4,3&5,3&6,3 \\
+                    1,4&2,4&3,4&4,4&5,4&6,4 \\
+                    1,5&2,5&3,5&4,5&5,5&6,5 \\
+                    1,6&2,6&3,6&4,6&5,6&6,6 \\
+                \end{bmatrix}
+                $
+            \item
+                E: Escoger al azar un número real dentro del intervalo unitario [0,1]\\
+                Espacio muestral contínuo.\\
+                $ \Omega = \{ x \in \mathbb{R} / 0 \leq x\leq1 \} $
+            \item
+                E: Extraer 2 bolas de una urna que contiene 2 bolas blancas y 2 verdes\\
+                Espacio muestral discreto.\\
+                $ \Omega =
+                    \begin{bmatrix}
+                        Blanca, Blanca & Blanca, Verde \\
+                        Verde, Blanca & Verde, Verde \\
+                    \end{bmatrix}
+                $
+        \end{enumerate}
+
+    \item
+        E: Lanzar 2 veces consecutivas un dado equilibrado.\\
+        $
+        \Omega =
+        \begin{bmatrix}
+            1,1&2,1&3,1&4,1&5,1&6,1 \\
+            1,2&2,2&3,2&4,2&5,2&6,2 \\
+            1,3&2,3&3,3&4,3&5,3&6,3 \\
+            1,4&2,4&3,4&4,4&5,4&6,4 \\
+            1,5&2,5&3,5&4,5&5,5&6,5 \\
+            1,6&2,6&3,6&4,6&5,6&6,6 \\
+        \end{bmatrix}
+        $
+        \begin{enumerate}
+            \item
+                A:\{La suma de los 2 numeros es 8\}\\
+                $P_{x}(A)$ = $\textbf{5/36}$\\
+                \begin{tabular}{||c c||}
+                     \hline
+                     $R_{x}$ & P(x) \\ [0.5ex]
+                     \hline\hline
+                     1 & 1/36 \\
+                     2 & 2/36  \\
+                     3 & 3/36  \\
+                     5 & 4/36  \\
+                     6 & 5/36  \\
+                     7 & 6/36  \\
+                     \hl{8} & \hl{5/36}  \\
+                     9 & 4/36  \\
+                     10 & 3/36  \\
+                     11 & 2/36  \\
+                     12 & 1/36  \\
+                     \hline
+                 \end{tabular}
+            \item
+                A:\{La suma de los 2 numeros es 8\}\\
+                B:\{El primer numero sea 5\}\\
+                $P_{x}(A)$=$ 5/36 = 0.139$\\
+                $P_{x}(B)$=$ 6/36 = 0.167$\\
+                $P_{x}(A \cap B)$=$ 1/36$\\
+                $P_{x}(B/A)$=$ \frac{P(A\cap B)}{P(A)}=\frac{1/36}{5/36}=\textbf{0.2}$
+        \end{enumerate}
+
+        \item
+            A = \{El televisor de alta definición está encendido\} \\
+            B = \{El televisor común está encedido\} \\
+            $P(A)=0.40$\\
+            $P(B)=0.30$\\
+            $P(A \cup B)=0.50$\\
+            \begin{enumerate}
+                \item
+                    $P(A \cap B)= P(A)+P(B)-P(A \cup B)$\\
+                    $P(A \cap B)= 0.40+0.30-0.50=\textbf{0.20}$\\
+                \item
+                    $P(A \cap B^{c})=P(A)-P(A \cap B)$ \\
+                    $P(A \cap B^{c})=0.40 -0.20 =\textbf{0.20}$ \\
+                \item
+                    $P(B \cap A^{c})=P(B)-P(A \cap B)$ \\
+                    $P(B \cap A^{c})=0.30 -0.20 =0.10$ \\
+                    $P((A \cap B^{c})\cup(B \cap A^{c}))= 0.2 + 0.1 = \textbf{0.3}$ \\
+                \item
+                    A y B no son eventos independientes, porque $P(A \cap B)\neq P(A)P(B)$\\
+                    $P(A \cap B) = 0.20$\\
+                    $P(A)P(B) = 0.4 \cdot 0.3 = 0.12$
+                \item
+                    A y B no son mutuamente excluyentes, porque $P(A \cap B)\neq 0$\\
+            \end{enumerate}
+
+        \item
+            A = \{Tripulantes que terminan entrenamiento con éxito\}\\
+            B = \{Tripulantes con experiencia\}\\
+            P(A)=0.90\\
+            $P(A^{c})=0.10$\\
+            $P(B/A)=0.10$\\
+            $P(B / A^{c})=0.25$\\
+            \begin{enumerate}
+                \item
+                    $P(B)=P(A)P(B/A)+P(A^{c})P(B/A^{c})$\\
+                    $P(B)=0.90\cdot0.10 + 0.10\cdot0.25$ \\
+                    $P(B)= 0.09 + 0.025 = 0.115$ \\
+
+                    $P(A \cap B)= P(A) \cdot P(B/A) = 0.90\cdot0.10=0.09$ \\
+
+                    P(A/B)=$\frac{P(A \cap B)}{P(B)}=\frac{0.09}{0.115}=\textbf{0.783}$\\
+
+                \item
+                    Dado que $P(A) \neq P(A/B)$, la experiencia influye en el éxito del entrenamiento.
+            \end{enumerate}
+
+\end{enumerate}
+
+
+
+\end{document}
