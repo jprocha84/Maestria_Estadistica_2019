@@ -83,20 +83,25 @@
                       \end{dcases}
                 $ \\
                 \item Obtenga la función de distribución acumulada $F_X(x)$ \\ % b.
-                    $ F(x) = $$\sum_{i=1}^{7} p(x_i) = 1$$ $ \\
+                    $ F(x) = $$\sum_{i=1}^{7} p(x_i) = \dfrac{1}{12} + \dfrac{2}{12} + \dfrac{2}{12} +\dfrac{2}{12}+\dfrac{2}{12}+\dfrac{2}{12}+\dfrac{1}{12}  = 1$$ $ \\
 
                 \item Halle $P(X>3)$ \\% c.
-                    $ P(X>3) = P(4)+P(5)+P(6)+P(7) = \frac{7}{12} $ \\
+                    $ P(X>3) = P(4)+P(5)+P(6)+P(7) = \boxed{\dfrac{7}{12}} $ \\
 
                 \item Halle la probabilidad de que el puntaje obtenido sea un número impar. \\ %.d
                     C = \{x es impar\} \\
                     C = \{1,3,5,7\} \\
-                    $ P(x) = \frac{6}{12} $
+                    $ P(x) = P(1)+P(3)+P(5)+P(7) = \boxed{\dfrac{6}{12}} $
                     \\
                 \item Halle $E(X), V(X)$ y $E(2X+3)$ \\ % e.
-                    $ E(x) = $ \\
-                    $ V(x) = $ \\
-                    $ E(2X+3) = $
+                    $ E(x) = $$\sum_{i=1}^{\infty} x_i p(x_i) = 1\dfrac{1}{12} +2\dfrac{2}{12} +3\dfrac{2}{12} +4\dfrac{2}{12} + 5\dfrac{2}{12}+  6\dfrac{2}{12}+  7\dfrac{1}{12} $$ = \boxed{4} $
+                    \begin{flalign*}
+                        V(x) & = E[X-E(X)]^2 \\&=
+                        E(X^2) - [E(X)]^2  \\&=
+                        1\dfrac{1}{12}+4\dfrac{2}{12}+9\dfrac{2}{12}+16\dfrac{2}{12}+ 25\dfrac{2}{12}+36\dfrac{2}{12}+49\dfrac{1}{12}-4^2  \\&=
+                        \boxed{3.1667}
+                    \end{flalign*}
+                    $ E(2X+3) = 2E(X)+ 3 = \boxed{11} $
                     \\
             \end{enumerate}
 
@@ -156,7 +161,7 @@
                         \boxed{0.234375}
                     \end{flalign*}
                     \begin{flalign*}
-                        P(X\leq1) &= \frac{1}{4}(x+y) \\&=
+                        P(X\leq1) &= \frac{1}{4}(x+1) \\&=
                         \boxed{0.5}
                     \end{flalign*}
                     \begin{flalign*}
@@ -175,14 +180,19 @@
 
                     \fbox{\begin{minipage}{15em}
                         $ F_x(x,y) \neq F_x(x) \cdot F_y(y) $\\
-                        No son independientes
+                        X e Y no son independientes
                     \end{minipage}}
             \end{enumerate}
 
         \item % Ejercicio 3
-            $ P(Y>X) = \cfrac{\lambdaup _1}{\lambdaup _1+\lambdaup _2} $
-
-
+            $ P(Y>X) = \cfrac{\lambdaup _1}{\lambdaup _1+\lambdaup _2} $ \\\\
+            $ \int_{0}^{y} \int_{0}^{y} \lambdaup _1 \lambdaup _2 e^{-\lambdaup _1 x - \lambdaup _2y} dy dx $
+            \begin{flalign*}
+                \int_{0}^{y} \lambdaup _1 \lambdaup _2 e^{-\lambdaup _1 x - \lambdaup _2y} dy = \lambdaup _1(e^{\lambdaup _2y}-1) e^{-\lambdaup _1 x - \lambdaup _2y}
+            \end{flalign*}
+            \begin{flalign*}
+                \int_{0}^{y} \lambdaup _1(e^{\lambdaup _2y}-1) e^{-\lambdaup _1 x - \lambdaup _2y} dx = (e^{\lambdaup _1 x}-1)(e^{\lambdaup _2 y}-1)e^{-\lambdaup _1 x - \lambdaup _2 y}
+            \end{flalign*}
     \end{enumerate}
 
 

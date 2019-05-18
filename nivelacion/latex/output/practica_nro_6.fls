@@ -1,4 +1,4 @@
-PWD /Users/jprocha/Proyectos/3.Educacion/maestria/estadistica/nivelacion/docs
+PWD /Users/jprocha/Proyectos/3.Educacion/maestria_estadistica/nivelacion/latex
 INPUT /usr/local/texlive/2016/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt
@@ -314,6 +314,8 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/boondox/zxxrl7z.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/txfonts/txr.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/rtxptmr.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/rtxr.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/newtx/ntxsy.vf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/txsy.tfm
 INPUT output/practica_nro_6.aux
 INPUT output/practica_nro_6.out
 INPUT output/practica_nro_6.out

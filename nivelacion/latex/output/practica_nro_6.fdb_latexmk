@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1558095469 "practica_nro_6.tex" "output/practica_nro_6.pdf" "practica_nro_6" 1558095470
+["pdflatex"] 1558154155 "practica_nro_6.tex" "output/practica_nro_6.pdf" "practica_nro_6" 1558154157
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1439157308 2880 847ca622ad468c3dafba6a3f9d89a636 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1422827479 2083 60e36f8eac802fcaf19eabe2633b406e ""
@@ -167,11 +167,11 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1471145832 1888048 f2c5faed5981a516f406b2ccc20bff71 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1471145890 3873397 f0e7e470ff30268245d66097db599b98 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "output/practica_nro_6.aux" 1558095470 997 14a95fa00b363b805cdba883bfc41638 ""
-  "output/practica_nro_6.out" 1558095469 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "practica_nro_6.tex" 1558095467 7534 9bf7bc244d7263ad0f3bbddfc7ffbbee ""
+  "output/practica_nro_6.aux" 1558154156 997 14a95fa00b363b805cdba883bfc41638 ""
+  "output/practica_nro_6.out" 1558154156 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "practica_nro_6.tex" 1558154152 8765 b15cd623e956cd5467bbfed81fcf5ece ""
   (generated)
-  "output/practica_nro_6.aux"
-  "output/practica_nro_6.out"
-  "output/practica_nro_6.pdf"
   "output/practica_nro_6.log"
+  "output/practica_nro_6.aux"
+  "output/practica_nro_6.pdf"
+  "output/practica_nro_6.out"
