@@ -1,0 +1,239 @@
+
+---
+title: ""
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=5.5, fig.height=3.5)
+```
+
+# Unidad 2 - Parte 1
+
+### Carga de los datos
+
+En primer lugar se establece el directorio de trabajo; también puede hacerse mediante el menú: en la parte inferior derecha de la pantalla,
+en la solapa "Files"", se elige la carpeta donde se está trabajando y dentro
+de la opción "More"" se elije "Set as working directory".
+
+```{r cars}
+setwd("C:/Users/gharvey/Dropbox/Facultad/Premaestria2019/4-Unidad 02 - Parte 1")
+``` 
+
+```{r}
+datos=read.table(file="BASE.csv", header = TRUE, sep = ";", dec = ",", stringsAsFactors = FALSE)  
+```
+
+Mediante la opción "header = TRUE" se indica que la primera fila es el nombre de cada campo; con "sep" se indica cómo están separados los valores de las distintas variables;
+"stringsAsFactors= FALSE" evita que se conviertan las cadenas de texto en factores directamente;
+mediante "dec" se indica cómo identificar al separador decimal.
+
+```{r}
+head(datos, 10) # Permite visualizar los primeros 10 registros.
+```
+
+
+```{r}
+attach(datos)
+```
+
+Con el comando attach se fija "datos" como base de trabajo. Sólo se recomienda cuando sea el único conjunto de datos que sea analizará. En caso de no utilizarlo, se debe indicar a qué conjunto de datos pertenecen las variables de la siguiente forma: datos$EDAD, datos$PESO, etc. 
+
+
+### Tablas de frecuencias
+
+#### Ejemplo variable nominal
+
+##### Tabla 1.
+
+```{r}
+(n=length(PRIMERIZA))
+(tablaFrecAbs = table(PRIMERIZA))
+(tablaFrecRel = tablaFrecAbs/n)
+(tablaFrecRelPct = (tablaFrecAbs/n)*100)
+```
+
+#### Ejemplo variable ordinal
+
+Si la variable es ordinal tiene sentido calcular frecuencias acumuladas.
+
+```{r}
+n=length(MAL_1) # Estaría de más ya que es la misma longitud que PRIMERIZA.
+(tablaFrecAbs = table(MAL_1))
+tablaFrecRel = tablaFrecAbs/n
+(tablaFrecRelPct = (tablaFrecAbs/n)*100)
+(tablaFrecAcu = cumsum(tablaFrecAbs))
+(tablaFrecRelAcu = cumsum(tablaFrecRel))
+```
+
+### Gráfico de sectores
+
+El gráfico básico se puede obtener mediante un simple comando:
+
+```{r}
+pie(table(PRIMERIZA))
+```
+
+##### Figura 1.
+
+```{r}
+frec_abs<-table(PRIMERIZA)
+porcentajes<-(frec_abs/n)*100
+# Si bien dado que n=100 la frecuencia absoluta coincide con el porcentaje, 
+# se indica en forma general.  
+
+lbls <- c("No primeriza", "Primeriza")
+lbls <- paste(lbls, porcentajes) # Se agregan los % a las etiquetas
+lbls <- paste(lbls,"%", sep="")  # Se agrega el sìmbolo % a las etiquetas
+pie(frec_abs,labels = lbls, col=c("red", "orange")) 
+```
+
+
+### Gráfico de barras
+
+#### Barras verticales simples 
+
+Si quisiera un gráfico de barras horizontales usaría la opción: horiz=TRUE.
+
+##### Figura 2.
+
+```{r}
+barplot(tablaFrecRelPct, xlab="Mallampati, 1ra medición", ylab="Porcentaje",
+        ylim=c(0,60), col=c("red"),
+        names=c("I", "II", "III", "IV"))
+```
+
+#### Barras agrupadas
+
+##### Figura 3.
+
+```{r}
+counts <- table(PRIMERIZA, EDAD_GEST_2)
+barplot(counts, xlab="Edad gestacional", names=c("A término", "Fuera de término"),
+        ylab="Número de pacientes",
+        col=c("lightblue","lightgreen"), ylim=c(0,60), beside=TRUE)  
+
+legend("topright", legend = c("No primeriza", "Primeriza"), 
+       fill = c("lightblue","lightgreen"))
+```
+
+### Gráfico de Pareto 
+
+Requiere el paquete "qcc" (Quality Control Charts and Statistical Process Control). 
+Es una forma práctica de obtener la tabla de frecuencias.
+
+```{r message=FALSE, warning=FALSE}
+# install.packages("qcc")
+library(qcc)
+```
+
+Tener en cuenta que se presenta sólo a modo de ejemplo ya que no sería éste el caso en el cual se recurriría a este gráfico.
+
+```{r}
+frec_abs<-table(MAL_1)
+pareto.chart(frec_abs, names=c("I", "II", "III", "IV"),
+             xlab="Mallampati, 1ra medición", ylab="Número de pacientes",
+             ylab2 = "Porcentaje acumulado",
+             main="", col="lightblue")
+```
+
+### Diagrama de tallo y hoja 
+
+```{r}
+stem(PESO)
+
+stem(TALLA)
+```
+
+### Histograma
+
+##### Figura 4.
+
+```{r}
+hist(TALLA, main="", xlab="Talla (m)",
+     ylab="Número de pacientes", ylim=c(0,40), xlim=c(1.45,1.80),
+     col="purple")
+```
+
+##### Para completar Tabla 2.
+
+Al ejecutar la sentencia con la opción "plot=F" muestra en la consola el detalle de la construcción: cuáles son los puntos de corte (breaks), la frecuencia de cada intervalo, la densidad y los puntos medios.
+
+```{r}
+hist(TALLA, plot=F)
+```
+
+##### Figura 5.
+
+```{r}
+hist(PESO, main="", xlab="Peso (en kg)",
+     ylab="Número de pacientes", ylim=c(0,40))
+```
+
+### Medidas descriptivas
+
+```{r}
+mean(TALLA)
+mean(PESO)
+
+median(TALLA)
+median(PESO)
+
+min(TALLA)
+max(TALLA)
+range(TALLA)
+(rango<-max(TALLA)-min(TALLA))
+
+var(TALLA)
+sd(TALLA)
+```
+
+Sólo para verificar que el valor obtenido corresponde a la fórmula presentada.
+
+```{r}
+dif <-TALLA-mean(TALLA)
+var <-sum((dif)^2)/n
+var
+```
+
+```{r}
+quantile(TALLA)
+
+IQR(TALLA)
+
+quantile(TALLA, c(0.10,0.90))
+
+summary(TALLA)
+```
+
+### Boxplots
+
+#### Boxplots simples
+
+##### Figura 6.
+
+```{r}
+summary(DUR_TP_HS)
+
+boxplot(DUR_TP_HS, boxfill="lightblue", horizontal=TRUE,
+        main="Duración del trabajo de parto (hs)")
+```
+
+#### Boxplots comparativos
+
+##### Figura 7.
+
+```{r}
+boxplot(EDAD_GEST~PRIMERIZA, xlab="Madre primeriza", 
+        ylab="Edad gestacional (semanas)",
+        names=c("No", "Sí"), boxfill="lightblue")
+```
+
+```{r}
+detach(datos)
+```
+
+
+
+
+

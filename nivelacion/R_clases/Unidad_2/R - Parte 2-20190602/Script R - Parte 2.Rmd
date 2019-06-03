@@ -1,0 +1,131 @@
+---
+title: "Ejemplos de clase"
+output:
+  html_document: default
+  pdf_document: default
+editor_options:
+  chunk_output_type: console
+---
+#Asociación entre variables cuantitativas
+
+###Ejemplo: Uso de Internet y la red social Facebook.
+
+```{r echo=TRUE, fig.width=4, fig.height=4}
+library(MASS)
+
+#Leemos los datos:
+datapath<-"C:/Users/idani/dropbox/5_Unidad 04"
+datos<-read.csv(file=paste(datapath,'Datos_Ejemplo_Facebook_Internet.csv', sep="/"), sep = ",")
+head(datos)
+
+#Resumen descriptivo de cada variable:
+summary(datos[,-1])
+
+#Resumen gráfico de cada variable:
+hist(datos$Internet, main="Acceso a Internet", xlab="Porcentaje de población con acceso a Internet", ylab="Frecuencia", col="lightblue")
+hist(datos$Facebook, main="Uso de Facebook", xlab="Porcentaje de población usuaria de Facebook", ylab="Frecuencia", col="lightblue")
+
+#Diagrama de dispersión entre acceso a internet y uso de facebook
+plot(datos$Internet, datos$Facebook, main="Diagrama de dispersión", xlab="Acceso a Internet", ylab="Uso de Facebook", col="blue", pch=16)
+abline(h=20.54, v=82.9, lty=2)
+
+#Para añadir la recta de regresión estimada:
+abline(lm(datos$Facebook ~ datos$Internet), col="red") 
+
+#Cálculo del coeficiente de correlación de Pearson:
+(cor(datos$Internet,datos$Facebook))
+
+```
+
+###Ejemplo de cálculo del coeficiente de correlación de Spearman.
+
+```{r echo=TRUE, fig.width=4, fig.height=4}
+#Cargamos los datos:
+x<-c(221, 228, 223, 211, 231, 215, 224, 233, 268) 
+y<-c(0.67, 0.86, 0.78, 0.54, 0.91, 0.44, 0.9, 0.94, 0.93) 
+
+#Gráfico de dispersión entre IMC e ingesta energética:
+plot(x, y, pch=19, xlab="IMC", ylab="Ingesta de energía")
+
+#Coeficiente de correlación de Pearson:
+cor(x,y)
+
+#Gráfico de dispersión entre los rangos asignados a X e Y:
+plot(rank(x), rank(y), pch=19, xlab="Rango(IMC)", ylab="rango(Ingesta de energía)") #La función rank() asigna rangos a los valores de la variable.
+
+#coeficiente de correlación de Spearman:
+cor(rank(x), rank(y))
+```
+
+#Asociación entre variables categóricas
+### Tablas de contingencia. Ejemplo de los pesticidas y la comida orgánica.
+
+
+```{r, fig.width=4, fig.height=4}
+#Cargamos los datos de la tabla:
+tabla1<-matrix(c(29, 19485, 98, 7086),2,2)
+colnames(tabla1)=c("Presente", "Ausente")
+rownames(tabla1)=c("Orgánica", "Convencional")
+(tabla.prop<-round(prop.table(tabla1,1),3)) 
+#La función prop.table calcula proporciones en una tabla. La opción 1 indica que calcule proporciones por fila, 2 por columna, y si no se especifica se calculan proporciones sobre el total.
+
+# Gráfico de barras agrupadas:
+barplot(tabla.prop, beside=T, main="Pesticidas y comida orgánica", legend.text=rownames(tabla.prop), ylab="Proporción", xlab="Tipo de comida")
+#La opción beside=T construye barras agrupadas, mientras que la opción beside=F contruye barras apiladas. 
+
+# Test de independencia chi-cuadrado:
+(test.chi<-chisq.test(tabla1, correct=F))
+names(test.chi) #lista los nombres de los objetos incluidos en la salida del test
+test.chi$expected #para pedir las frecuencias esperadas
+test.chi$stdres #para pedir los residuos estandarizados
+```
+
+### Ejemplo del Test exacto de Fisher:
+
+```{r}
+# Cargamos los datos:
+tabla2<-matrix(c(3, 10, 7, 5),2,2)
+fisher.test(tabla2, alternative="two.sided") #realiza el test exacto
+test<-chisq.test(tabla2, correct=F) #pedimos el test chi-cuadrado para ver qué sucede
+```
+Vemos que R no da la salida del test Chi-cuadrado, en su lugar arroja una advertencia indicando que la aproximación Chi-cuadrado podría no ser adecuada en este caso.
+
+
+
+### Ejemplo: Caso Universidad de California - Presencia de variable de confusión.
+
+```{r}
+#Cargamos los datos de la tabla general:
+tabla3<-matrix(c(1512, 3714, 2809, 4728),2,2) #tabla general
+colnames(tabla3)=c("Admitidos", "No admitidos")
+rownames(tabla3)=c("Femenino", "Masculino")
+
+(test<-chisq.test(tabla3, correct=F)) #test Chi-cuadrado
+test$stdres #residuos estandarizados
+```
+
+El test es significativo, indicando una asociación entre género y admisión. A partir de los residuos estandarizados, puede verse que hay menos mujeres admitidas que las esperadas si no hubiese asociación (residuo negativo grande en la celda femenino-admitidos), y por ende, más hombres admitidos de los esperados si no hubiese asociación (residuo positivo grande en la celda masculino-admitidos).   
+
+```{r}
+#Cargamos la tabla para el departamento A:
+tabla4<-matrix(c(89, 511, 19, 314),2,2) 
+colnames(tabla4)=c("Admitidos", "No admitidos")
+rownames(tabla4)=c("Femenino", "Masculino")
+(test<-chisq.test(tabla4, correct=F)) #test Chi-cuadrado
+test$stdres #residuos estandarizados
+```
+
+Para los datos particulares del departamento A, el test también es significativo, pero los residuos estandarizados señalan que el sentido de la asociación ha cambiado. Hay más mujeres admitidas de las esperadas bajo independencia. 
+
+```{r}
+#Cargamos la tabla para el departamento B:
+tabla5<-matrix(c(17, 353, 8, 207),2,2) 
+colnames(tabla5)=c("Admitidos", "No admitidos")
+rownames(tabla5)=c("Femenino", "Masculino")
+(test<-chisq.test(tabla5, correct=F)) #test Chi-cuadrado
+test$stdres #residuos estandarizados
+```
+
+Para los datos del departamento B, el test es no significativo, indicando la ausencia de asociación entre género y admisión. 
+
+

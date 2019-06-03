@@ -1,0 +1,318 @@
+\documentclass[12pt,letterpaper,fleqn]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd,mathtools}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage[svgnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[unicode]{hyperref}
+\usepackage{soul}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{selinput}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{textgreek}
+\usepackage{newtxtext,newtxmath}
+\usepackage{threeparttable}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage{tikz}
+\usepackage[section]{placeins}
+\SelectInputMappings{%
+  aacute={á},
+  ntilde={ñ},
+  Euro={€}
+}
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{DarkGreen},
+    otherkeywords={0,1,2,3,4,5,6,7,8,9},
+    morekeywords={TRUE,FALSE},
+    deletekeywords={data,frame,length,as,character},
+    keywordstyle=\color{blue},
+    commentstyle=\color{DarkGreen},
+}
+
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines,
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{Maestría en Estadística Aplicada}
+\newcommand\hwnumber{1}                  % <-- homework number
+\newcommand\NetIDa{Curso Nivelación - Ejercitación Nº4}           % <-- NetID of person #1
+\newcommand\NetIDb{Juan Pablo Rocha Amado}           % <-- NetID of person #2 (Comment this line out for problem sets)
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}                 % <-- Comment this line out for problem sets (make sure you are person #1)
+\chead{\textbf{\Large Unidad 2}}
+\rhead{\course \\ \today}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+%\captionsetup[table]{labelsep=space,justification=raggedright, singlelinecheck=off}
+
+\begin{document}
+    \section*{Ejercitación Unidad 2 - Parte 2}
+
+    \begin{enumerate}[label=\textbf{\arabic*.}]
+
+        \item
+            \begin{enumerate}[label=\textbf{\alph*.}]
+                \item \underline{\textbf{Tabla de contingencia}} % a)
+                    \begin{table}[ht]
+                        \centering
+                        \caption{Tabla de contingencia para las variables \\ hábito de fumar y sobrevida a 20 años}
+                        \begin{threeparttable}
+                            \begin{tabular}{rrrr}
+                                \hline
+                                & Fumadora & No Fumadora \vline & Total \\
+                                \hline
+                                No Sobrevive & 139 & 230 \vline & 369 \\
+                                Sobrevive & 443 & 502 \vline & 945 \\
+                                \hline
+                                Total & 582 & 732 \vline & 1314 \\
+                                \hline
+                            \end{tabular}
+                        \end{threeparttable}
+                    \end{table}
+
+                    \underline{\textbf{Medidas de asociación}} \\
+                    \textbf{Diferencia de proporciones condicionales:} \\
+                    $ \frac{139}{369}-\frac{443}{945} = -0.0920893 $ \\ 
+                    La proporción de fumadoras es menor entre los no sobrevivientes que entre los sobrevivientes \\
+                    $ \frac{230}{369}-\frac{502}{945} = 0.0920893 $ \\ 
+                    La proporción de no fumadoras es mayor entre los no sobrevivientes que entre los sobrevivientes\\
+
+                    \textbf{Coeficiente de proporciones condicionales (o riesgo relativo)}\\
+                     $ RR =  \frac{139}{369}/\frac{443}{945} = 0.8035567 $ \\ 
+                     La chance de ser fumadora es casi un 20\% menor entre los no sobrevivientes que entre los sobrevivientes.\\
+                     $ RR =  \frac{230}{369}/\frac{502}{945} = 1.173355 $ \\ 
+                     La chance de ser no fumadora es casi un 17\% mayor entre los no sobrevivientes que entre los sobrevivientes.\\
+
+
+                    \begin{figure}[!h]
+                        \centering
+                        \input{figs/fig1.tex}
+                        \caption{Proporción de sobrevida en fumadoras y \\no fumadoras}
+                        \label{fig:figure1}
+                    \end{figure}
+
+                    \underline{\textbf{Test de independencia}} \\ \\
+                    \textbf{Chi-cuadrado} = 9.1209 \\
+                    \textbf{p-value} = 0.002527 \\ \\
+                     El p-value es menor que $\alpha$ = 0.05, por lo tanto se rechaza la hipótesis nula de independencia. Con lo cual el hábito de fumar está significativamente asociado a la sobrevida a 20 años. \\
+                    Como se puede observar en la figura~\ref{fig:figure1}, el porcentaje de sobrevida es mayor en los fumadores, sumado a los valores observados en las medidas de asociación, los resultados resultan contrarios a lo esperado.
+
+                \item  %b)
+                A raíz de los resultados contradictorios que arroja el análisis anterior, los investigadores decidieron tener en cuenta en el análisis una variable adicional.
+                \begin{table}[ht]
+                    \centering
+                    \caption{Estudio con variable Edad de las personas}
+                    \begin{threeparttable}
+                        \resizebox{\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+                            \hline
+                            & \multicolumn{2}{|c|}{18-34 años} & \multicolumn{2}{|c|}{35-54 años} & \multicolumn{2}{|c|}{55-64 años} & \multicolumn{2}{|c|}{65 años o más}\\
+                            Fuma & Sobrevive & No Sobrevive & Sobrevive & No Sobrevive  & Sobrevive & No Sobrevive  & Sobrevive & No Sobrevive \\
+                            \hline
+                            Si & 174 & 5 & 198 & 41 & 64 & 51 & 7 & 42\\
+                            \hline
+                            No & 213 & 6 & 180 & 19 & 81 & 40 & 28 & 165\\
+                            \hline
+                        \end{tabular}}
+                    \end{threeparttable}
+                \end{table}
+                \\
+                \underline{\textbf{Edad de 18 a 34 años}}
+                \begin{table}[ht]
+                    \centering
+                    \caption{Tabla de contingencia para las variables \\ hábito de fumar y sobrevida a 20 años}
+                    \begin{tabular}{rrrr}
+                      \hline
+                     & Fumadora & No Fumadora \vline & Total \\
+                      \hline
+                    No Sobrevive & 5 & 6 \vline & 11 \\
+                      Sobrevive & 174 & 213 \vline & 387 \\
+                      \hline
+                      Total & 179 & 219 \vline  & 398 \\
+                       \hline
+                    \end{tabular}
+                \end{table}
+
+                \textbf{Medidas de asociación} \\
+                \textbf{Diferencia de proporciones condicionales:} \\
+                $ \frac{5}{11}-\frac{174}{387} = 0.004933051 $ \\ 
+                La proporción de fumadoras es mayor entre los no sobrevivientes que entre los sobrevivientes \\
+                $ \frac{6}{11}-\frac{213}{387} = -0.004933051 $ \\ 
+                La proporción de no fumadoras es menor entre los no sobrevivientes que entre los sobrevivientes\\
+
+                \textbf{Coeficiente de proporciones condicionales (o riesgo relativo)}\\
+                 $ RR =  \frac{5}{11}/\frac{174}{387} = 1.010972 $ \\ 
+                 La chance de ser fumadora es casi igual entre sobrevivientes y no sobrevivientes.\\
+                 $ RR =  \frac{6}{11}/\frac{213}{387} = 0.9910371 $ \\ 
+                 La chance de ser no fumadora es casi igual entre sobrevivientes y no sobrevivientes.\\
+
+                \begin{figure}[!htb]
+                    \centering
+                    \input{figs/fig2.tex}
+                    \caption{Proporción de sobrevida en fumadoras y \\no fumadoras}
+                    \label{fig:figure1}
+                \end{figure}
+                \FloatBarrier
+                \textbf{Chi-cuadrado} = 0.0015576 \\
+                \textbf{p-value} = 0.9685 \\
+                El p-value es menor a $ \alpha =0.05 $ por lo que se acepta la hipótesis nula de independencia. Además las medidas de asociación confirman esta independencia. \\
+
+                \underline{\textbf{Edad de 35 a 54 años}}
+                \begin{table}[ht]
+                    \centering
+                    \caption{Tabla de contingencia para las variables \\ hábito de fumar y sobrevida a 20 años}
+                    \begin{tabular}{rrrr}
+                      \hline
+                     & Fumadora & No Fumadora \vline& Total \\
+                      \hline
+                    No Sobrevive & 41 & 19 \vline& 60 \\
+                      Sobrevive & 198 & 180 \vline& 378 \\
+                      \hline
+                      Total & 239 & 199\vline & 438 \\
+                       \hline
+                    \end{tabular}
+                \end{table}
+
+                \textbf{Medidas de asociación} \\
+                \textbf{Diferencia de proporciones condicionales:} \\
+                $ \frac{41}{60}-\frac{198}{378} = 0.1595238 $ \\ 
+                La proporción de fumadoras es mayor entre los no sobrevivientes que entre los sobrevivientes \\
+                $ \frac{19}{60}-\frac{180}{378} = -0.1595238 $ \\ 
+                La proporción de no fumadoras es menor entre los no sobrevivientes que entre los sobrevivientes\\
+
+                \textbf{Coeficiente de proporciones condicionales (o riesgo relativo)}\\
+                 $ RR =  \frac{41}{60}/\frac{198}{378} = 1.304545 $ \\ 
+                 La chance de ser fumadora es casi un 30\% mayor entre los no sobrevivientes que entre los sobrevivientes.\\
+                 $ RR =  \frac{19}{60}/\frac{180}{378} = 0.665 $ \\ 
+                 La chance de ser no fumadora es un 33\% menor entre los no sobrevivientes que entre los sobrevivientes.\\
+
+                \begin{figure}[!htb]
+                    \centering
+                    \input{figs/fig3.tex}
+                    \caption{Proporción de sobrevida en fumadoras y \\no fumadoras}
+                    \label{fig:figure1}
+                \end{figure}
+                \FloatBarrier
+                \textbf{Chi-cuadrado} = 5.3152 \\
+                \textbf{p-value} = 0.02114 \\
+                El p-value es menor al $ \alpha = 0.05 $ con lo cual se rechaza la hipótesis nula de independencia. Observando las medidas de asociación se encuentra que entre los no sobrevivientes, la chance de ser fumador es más alta. En la figura 3. esto se puede visualizar más claramente.\\
+
+                \underline{\textbf{Edad de 55 a 64 años}}
+                \begin{table}[ht]
+                    \centering
+                    \caption{Tabla de contingencia para las variables \\ hábito de fumar y sobrevida a 20 años}
+                    \begin{tabular}{rrrr}
+                      \hline
+                     & Fumadora & No Fumadora \vline& Total \\
+                      \hline
+                    No Sobrevive & 51 & 40 \vline& 91 \\
+                      Sobrevive & 64 & 81 \vline& 145 \\
+                      \hline
+                      Total & 115 & 121 \vline& 236 \\
+                       \hline
+                    \end{tabular}
+                \end{table}
+
+                \textbf{Medidas de asociación} \\
+                \textbf{Diferencia de proporciones condicionales:} \\
+                $ \frac{51}{91}-\frac{64}{145} = 0.1190603 $ \\ 
+                La proporción de fumadoras es mayor entre los no sobrevivientes que entre los sobrevivientes \\
+                $ \frac{40}{91}-\frac{81}{145} = -0.1190603 $ \\ 
+                La proporción de no fumadoras es menor entre los no sobrevivientes que entre los sobrevivientes\\
+
+                \textbf{Coeficiente de proporciones condicionales (o riesgo relativo)}\\
+                 $ RR =  \frac{51}{91}/\frac{64}{145} = 1.269746 $ \\ 
+                 La chance de ser fumadora es un 26\% mayor entre los no sobrevivientes que entre los sobrevivientes.\\
+                 $ RR =  \frac{40}{91}/\frac{81}{145} = 0.7868675 $ \\ 
+                 La chance de ser no fumadora es casi un 22\% menor entre los no sobrevivientes que entre los sobrevivientes.\\
+
+                \begin{figure}[!htb]
+                    \centering
+                    \input{figs/fig4.tex}
+                    \caption{Proporción de sobrevida en fumadoras y \\no fumadoras}
+                    \label{fig:figure1}
+                \end{figure}
+                \FloatBarrier
+                \textbf{Chi-cuadrado} = 3.1723 \\
+                \textbf{p-value} = 0.0749 \\
+                El p-value es mayor al $ \alpha = 0.05 $ con lo cual se acepta la hipótesis nula de independencia. Sin embargo, al observar las medidas de asociación, se encuentra que entre los no sobrevivientes, la change de ser fumador sigue siendo más alta. En la figura 4. se puede visualizar este resultado.\\
+
+                \underline{\textbf{Edad de 65 años o más}}
+                \begin{table}[ht]
+                    \centering
+                    \caption{Tabla de contingencia para las variables \\ hábito de fumar y sobrevida a 20 años}
+                    \begin{tabular}{rrrr}
+                      \hline
+                     & Fumadora & No Fumadora \vline& Total \\
+                      \hline
+                    No Sobrevive & 42 & 165 \vline& 207 \\
+                      Sobrevive & 7 & 28 \vline & 35 \\
+                      \hline
+                      Total & 49 & 193 \vline & 242 \\
+                       \hline
+                    \end{tabular}
+                \end{table}
+
+                \textbf{Medidas de asociación} \\
+                \textbf{Diferencia de proporciones condicionales:} \\
+                $ \frac{42}{207}-\frac{7}{35} = 0.002898551 $ \\ 
+                La proporción de fumadoras es mayor entre los no sobrevivientes que entre los sobrevivientes \\
+                $ \frac{165}{207}-\frac{28}{35} = -0.002898551 $ \\ 
+                La proporción de no fumadoras es menor entre los no sobrevivientes que entre los sobrevivientes\\
+
+                \textbf{Coeficiente de proporciones condicionales (o riesgo relativo)}\\
+                 $ RR =  \frac{42}{207}/\frac{7}{35} = 1.014493 $ \\ 
+                 La chance de ser fumadora es casi igual entre sobrevivientes y no sobrevivientes.\\
+                 $ RR =  \frac{165}{207}/\frac{28}{35} = 0.9963768 $ \\ 
+                 La chance de ser fumadora es casi igual entre sobrevivientes y no sobrevivientes.\\
+
+                \begin{figure}[!htb]
+                    \centering
+                    \input{figs/fig5.tex}
+                    \caption{Proporción de sobrevida en fumadoras y \\no fumadoras}
+                    \label{fig:figure1}
+                \end{figure}
+                \FloatBarrier
+                \textbf{Chi-cuadrado} = 0.0015576 \\
+                \textbf{p-value} = 0.9685 \\
+                El p-value es mayor al $ \alpha = 0.05 $ con lo cual se acepta la hipótesis nula de independencia. Sin embargo, al observar las medidas de asociación, se puede concluir que la sobrevida y el hábito de fumar no están relacionados. Eso mismo se puede concluir observando la figura 5. \\
+            \end{enumerate}
+
+            \textbf{Conclusión:}
+            Observando las medidas de asociación y los gráficos, es posible concluir que la relación entre el hábito de fumar y sobrevivir es muy alta en las personas entre 35 a 64 años de edad. Especialmente en el rango de edad entre 35 a 54 años, las personas fumadoras tienen más chance de no sobrevivir.
+
+        \item
+
+    \end{enumerate}
+
+\end{document}

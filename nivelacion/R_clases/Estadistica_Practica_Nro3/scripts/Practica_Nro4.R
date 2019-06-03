@@ -1,7 +1,9 @@
+library(tikzDevice)
+options(tikzDefaultEngine = 'pdftex')
 # Encuesta a usuarios del Sistema de Bicicletas Públicas
 # Fuente: https://datos.rosario.gob.ar/dataset/encuesta-usuarios-del-sistema-de-bicicletas-públicas 
 
-encuesta_data=read.csv('~/maestria_estadistica/Estadistica_Practica_Nro3/data/encuesta_sbp_2018.csv',
+encuesta_data=read.csv('/Users/jprocha/Proyectos/3.Educacion/maestria_estadistica/nivelacion/R_clases/Estadistica_Practica_Nro3/data/encuesta_sbp_2018.csv',
                sep = ";",
                header = TRUE,
                fileEncoding="latin1")

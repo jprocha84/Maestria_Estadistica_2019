@@ -29,6 +29,9 @@ barplot(tabla.prop, ylim=c(0,1.2),
         ylab="Proporción", 
         xlab="Hábito de Fumar")
 
+
+print(xtable(tabla.prop, type = "latex"), file = "filename2.tex")
+
 (test.chi<-chisq.test(personas, correct=F))
 test.chi$expected
 

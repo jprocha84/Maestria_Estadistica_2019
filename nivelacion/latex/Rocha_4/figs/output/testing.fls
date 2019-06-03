@@ -1,0 +1,6 @@
+PWD /Users/jprocha/Proyectos/3.Educacion/maestria_estadistica/nivelacion/latex/Rocha_4/figs
+INPUT /usr/local/texlive/2016/texmf.cnf
+INPUT /usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT testing.tex
+OUTPUT output/testing.log

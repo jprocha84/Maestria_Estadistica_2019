@@ -1,0 +1,13 @@
+\documentclass{article}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+You can type R commands in your \LaTeX{} document and they will be properly run and the output printed in the document.
+
+<<plot1, fig.pos="t", fig.height=4, fig.width=4, fig.cap="First plot">>=
+plot(c(1,2,3,4),c(2,3,4,5))
+@
+ 
+The figure \ref{fig:plot1} is simple histogram.
+
+\end{document}

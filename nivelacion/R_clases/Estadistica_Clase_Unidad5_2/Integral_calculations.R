@@ -1,5 +1,6 @@
 # http://www.rpubs.com/venkatritch/333327
 f=expression(x^2+3*x)
+f=expression(1/(n*(x^2)))
 D(f,'x')
 D(D(f,'x'),'x')
 
@@ -20,7 +21,7 @@ integrate(integrand, lower = 0, upper = Inf)
 f<-function(x) 2*x
 integrate(f,0,2)
 
-f=expression(2*x)
+f=expression(1/(n*x))
 integral(2*x, limits = NULL)
 
 
