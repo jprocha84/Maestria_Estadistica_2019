@@ -1,0 +1,104 @@
+\documentclass[12pt,letterpaper,fleqn]{article}
+\usepackage{fullpage}
+\usepackage[top=2cm, bottom=4.5cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd,mathtools}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[unicode]{hyperref}
+\usepackage{soul}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{selinput}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{textgreek}
+\usepackage{newtxtext,newtxmath}
+\SelectInputMappings{%
+  aacute={á},
+  ntilde={ñ},
+  Euro={€}
+}
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue,
+  linkbordercolor={0 0 1}
+}
+
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+\lstdefinestyle{Python}{
+    language        = Python,
+    frame           = lines,
+    basicstyle      = \footnotesize,
+    keywordstyle    = \color{blue},
+    stringstyle     = \color{green},
+    commentstyle    = \color{red}\ttfamily
+}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+
+% Edit these as appropriate
+\newcommand\course{Maestría en Estadística Aplicada}
+\newcommand\hwnumber{1}                  % <-- homework number
+\newcommand\NetIDa{Curso Nivelación - Ejercitación Nº8}           % <-- NetID of person #1
+\newcommand\NetIDb{Juan Pablo Rocha Amado}           % <-- NetID of person #2 (Comment this line out for problem sets)
+
+\pagestyle{fancyplain}
+\headheight 35pt
+\lhead{\NetIDa}
+\lhead{\NetIDa\\\NetIDb}                 % <-- Comment this line out for problem sets (make sure you are person #1)
+\chead{\textbf{\Large Unidad 6}}
+\rhead{\course \\ \today}
+\lfoot{}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.5em
+
+\begin{document}
+
+    \section*{Ejercitación Unidad 6}
+
+    \begin{enumerate}[label=\textbf{\arabic*.}]
+        \item % Ejercicio 1
+        \begin{flalign*}
+            \bar{x} &= 0.750\ mg \\
+            s &= 0.175\ mg \\
+            n &= 16\ cigarrillos
+        \end{flalign*}
+        \begin{enumerate}[label=\textbf{\alph*.}]
+            \item Postule las hipótesis a ensayar.
+            \begin{flalign*}
+                H_0 &= \mu = 0.600\ mg \\
+                H_1 &= \mu > 0.600\ mg \\
+            \end{flalign*}
+
+            \item Plantee la estadística de prueba a utilizar; justifique su elección.
+
+            \item Calcule el p-value tome una decisión e interprete.
+
+            \item Si se establece la siguiente regla de decisión: rechazar $H_0$ cuando el promedio observado sea 0.700 mg o mayor.
+
+                \begin{enumerate}[label=\textbf{\arabic*.}]
+                    \item Calcule la probabilidad de error tipo 1.
+
+                    \item Calcule la probabilidad de error tipo 2, suponiendo que el promedio de nicotina postulado por la $H_1$ es 0.720.
+
+                \end{enumerate}
+
+            \item Construya un intervalo de confianza para poder dar respuesta al planteo de la organización desde otro enfoque.
+
+        \end{enumerate}
+
+    \end{enumerate}
+
+
+
+\end{document}

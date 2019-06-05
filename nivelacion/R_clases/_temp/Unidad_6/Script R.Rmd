@@ -1,0 +1,175 @@
+
+---
+title: ""
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.width=5.5, fig.height=3.5)
+```
+
+# Unidad 6
+
+```{r include=FALSE}
+setwd("C:/Unidad 6")
+``` 
+     
+     
+### Ejercicio 1
+
+```{r}
+(p_estim <- 118/295)
+n <- 295
+error_std <- sqrt(p_estim*(1-p_estim)/n)
+valor_z <- qnorm(0.975)
+
+lim_inf <- p_estim-valor_z*error_std
+lim_sup <- p_estim+valor_z*error_std
+
+# O bien:
+p_estim + c(-1, 1) * qnorm(0.975) * error_std
+```
+
+
+### Ejercicio 2
+
+```{r}
+media <- 7.8
+desv.est <- 1.2
+n <- 15
+error_std <- desv.est/sqrt(n)
+valor_t=qt(0.975,n-1)
+
+lim_inf <- media-valor_t*error_std
+lim_sup <- media+valor_t*error_std
+
+# O bien:
+media + c(-1, 1) * qt(0.975, n-1) * error_std
+```
+
+
+### Ejercicio 3
+
+```{r}
+(valor_interes <- (24*0.015**2)/(0.01**2))
+
+1-pchisq(54, 24)
+
+pchisq(54, 24, lower.tail = FALSE)
+```
+
+Para construir el IC:
+
+```{r}
+desv.est_muestral <- 0.015
+var_muestral <- desv.est_muestral**2
+n <- 25
+gl <- n-1
+
+qchisq(0.975, gl)
+qchisq(0.025, gl)
+
+(lim_inf <- gl*var_muestral/qchisq(0.975, gl))
+(lim_sup <- gl*var_muestral/qchisq(0.025, gl))
+```
+
+
+### Ejercicio 4
+
+Item a.
+
+```{r}
+p_estim <- 0.58
+margen_error <- 0.04
+valor_z <- qnorm(0.975)
+
+n <- p_estim*(1-p_estim)/(margen_error/valor_z)**2
+n
+```
+
+Item b.
+
+```{r}
+p_estim <- 0.50
+margen_error <- 0.04
+valor_z <- qnorm(0.975)
+
+n <- p_estim*(1-p_estim)/(margen_error/valor_z)**2
+n
+```
+
+Propuesto: probar con otros valores de la proporci?n estimada (cercanos a 0 ? 1).
+
+Item c.
+
+```{r}
+p_estim <- 0.50
+margen_error <- 0.02
+valor_z <- qnorm(0.975)
+
+n <- p_estim*(1-p_estim)/(margen_error/valor_z)**2
+n
+```
+
+
+### Ejercicio 5
+
+```{r}
+desv.est_muestral <- 3
+var_muestral <- desv.est_muestral**2
+valor_z <- qnorm(0.975)
+margen_error <- 1
+
+n <- var_muestral*(valor_z**2)/(margen_error**2)
+n
+```
+
+
+### Ejercicio 6
+
+```{r}
+p_estim <- 22/54
+p_0 <- 1/7
+n <- 54
+
+Z_obs <- (p_estim - p_0)/sqrt(p_0*(1-p_0)/n)
+Z_obs
+
+p_value <- pnorm(-5.6) + pnorm(5.6, lower.tail = FALSE)
+```
+
+### Otras aplicaciones
+
+## En relaci?n al conjunto de datos presentado en la Unidad 2
+
+```{r}
+datos=read.table(file="BASE.csv", header = TRUE, sep = ";", dec = ",", stringsAsFactors = FALSE)  
+```
+
+Supongamos que interesa estimar por IC el peso promedio de las mujeres en trabajo de parto
+
+```{r}
+hist(datos$PESO, main="", xlab="Peso (en kg)",
+     ylab="N?mero de pacientes", ylim=c(0,40))
+```
+
+Utilizando la funci?n t.test:
+
+```{r}
+t.test(datos$PESO)
+```
+
+Aplicando lo visto en el Ejercicio 2:
+
+```{r}
+media <- mean(datos$PESO)
+desv.est <- sd(datos$PESO)
+n <- length(datos$PESO)
+error_std <- desv.est/sqrt(n)
+
+media + c(-1, 1) * qt(0.975, n-1) * error_std
+
+T_OBS <- (media-0)/(desv.est/10)
+T_OBS
+```
+

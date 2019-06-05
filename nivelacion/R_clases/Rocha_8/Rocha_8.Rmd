@@ -1,0 +1,18 @@
+---
+title: "Rocha 8"
+output: html_notebook
+---
+
+```{r}
+media <- 7.8
+desv.est <- 1.2
+n <- 15
+error_std <- desv.est/sqrt(n)
+valor_t=qt(0.975,n-1)
+
+lim_inf <- media-valor_t*error_std
+lim_sup <- media+valor_t*error_std
+
+# O bien:
+media + c(-1, 1) * qt(0.975, n-1) * error_std
+```
