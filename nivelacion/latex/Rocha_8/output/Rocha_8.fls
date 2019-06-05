@@ -288,6 +288,18 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/boondox/zxxrl7z.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/txfonts/txr.vf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/rtxptmr.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/rtxr.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/newtx/ntxsy.vf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/txsy.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/newtx/ntxsym.vf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/txsya.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/newtx/ntxmi.vf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/txmi.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/newtx/rntxmi.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/txfonts/txmi.vf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/rtxmi.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/rtxptmri.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/newtx/ntxsy.vf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/txsy.tfm
 INPUT output/Rocha_8.aux
 INPUT output/Rocha_8.out
 INPUT output/Rocha_8.out
@@ -300,4 +312,6 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/newtx/rntxmi.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/rtxr.pfb
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsy.pfb
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/txfonts/txsya.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb

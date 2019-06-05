@@ -77,13 +77,22 @@
             \item Postule las hipótesis a ensayar.
             \begin{flalign*}
                 H_0 &= \mu = 0.600\ mg \\
-                H_1 &= \mu > 0.600\ mg \\
+                H_1 &= \mu > 0.600\ mg
             \end{flalign*}
 
-            \item Plantee la estadística de prueba a utilizar; justifique su elección.
+            \item Plantee la estadística de prueba a utilizar; justifique su elección.\\ \\
+                Dado que los datos provienen de una población normal con desvío estándar desconocido, se utilizará la siguiente estadística de prueba:
+                \begin{flalign*}
+                    t &= \frac{\bar{X} - \mu_0}{S/\sqrt{n}} \backsim t_{n-1} \\
+                    t &= \frac{0.750 - 0.600}{0.175 / \sqrt{16}} \\
+                    t &= 3.428571
+                \end{flalign*}
 
             \item Calcule el p-value tome una decisión e interprete.
-
+                \begin{flalign*}
+                    p-value = 0.001866207
+                \end{flalign*}
+                
             \item Si se establece la siguiente regla de decisión: rechazar $H_0$ cuando el promedio observado sea 0.700 mg o mayor.
 
                 \begin{enumerate}[label=\textbf{\arabic*.}]

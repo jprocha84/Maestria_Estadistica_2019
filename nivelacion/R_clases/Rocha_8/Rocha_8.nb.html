@@ -1769,22 +1769,16 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVkaWEgPC0gNy44XG5kZXN2LmVzdCA8LSAxLjJcbm4gPC0gMTVcbmVycm9yX3N0ZCA8LSBkZXN2LmVzdC9zcXJ0KG4pXG52YWxvcl90PXF0KDAuOTc1LG4tMSlcblxubGltX2luZiA8LSBtZWRpYS12YWxvcl90KmVycm9yX3N0ZFxubGltX3N1cCA8LSBtZWRpYSt2YWxvcl90KmVycm9yX3N0ZFxuXG4jIE8gYmllbjpcbm1lZGlhICsgYygtMSwgMSkgKiBxdCgwLjk3NSwgbi0xKSAqIGVycm9yX3N0ZFxuYGBgIn0= -->
-<pre class="r"><code>media &lt;- 7.8
-desv.est &lt;- 1.2
-n &lt;- 15
-error_std &lt;- desv.est/sqrt(n)
-valor_t=qt(0.975,n-1)
-
-lim_inf &lt;- media-valor_t*error_std
-lim_sup &lt;- media+valor_t*error_std
-
-# O bien:
-media + c(-1, 1) * qt(0.975, n-1) * error_std</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuKDAuNzUwLTAuNjAwKS8oMC4xNzUvc3FydChuKSlcblxuYGBgIn0= -->
+<pre class="r"><code>(0.750-0.600)/(0.175/sqrt(n))
+</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMuNDI4NTcxXG4ifQ== -->
+<pre><code>[1] 3.428571</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUm9jaGEgOCIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9Cm1lZGlhIDwtIDcuOApkZXN2LmVzdCA8LSAxLjIKbiA8LSAxNQplcnJvcl9zdGQgPC0gZGVzdi5lc3Qvc3FydChuKQp2YWxvcl90PXF0KDAuOTc1LG4tMSkKCmxpbV9pbmYgPC0gbWVkaWEtdmFsb3JfdCplcnJvcl9zdGQKbGltX3N1cCA8LSBtZWRpYSt2YWxvcl90KmVycm9yX3N0ZAoKIyBPIGJpZW46Cm1lZGlhICsgYygtMSwgMSkgKiBxdCgwLjk3NSwgbi0xKSAqIGVycm9yX3N0ZApgYGA=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUm9jaGEgOCIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3J9Cm1lZGlhIDwtIDAuNzUwCmRlc3YuZXN0IDwtIDAuMTc1Cm4gPC0gMTYKZXJyb3Jfc3RkIDwtIGRlc3YuZXN0L3NxcnQobikKdmFsb3JfdD1xdCgwLjk3NSxuLTEpCgp0X29icyA9IChtZWRpYSAtIDAuNjAwKS8oZXJyb3Jfc3RkKQpwdmFsdWUgPSBwdCh0X29icyxuLTEsbG93ZXIudGFpbCA9IEZBTFNFKQoKbGltX2luZiA8LSBtZWRpYS12YWxvcl90KmVycm9yX3N0ZApsaW1fc3VwIDwtIG1lZGlhK3ZhbG9yX3QqZXJyb3Jfc3RkCgojIE8gYmllbjoKbWVkaWEgKyBjKC0xLCAxKSAqIHF0KDAuOTc1LCBuLTEpICogZXJyb3Jfc3RkCmBgYA==</div>
 
 
 

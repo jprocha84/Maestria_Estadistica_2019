@@ -40,6 +40,12 @@ n <- 15
 error_std <- desv.est/sqrt(n)
 valor_t=qt(0.975,n-1)
 
+#Agregado durante clase, ejercicio 2.b
+t_obs = (media - 7)/(error_std)
+pvalue = pt(t_obs,n-1,lower.tail = FALSE)
+
+pt((7.8-7)/(1.2/sqrt(15)),n-1,lower.tail = FALSE)
+
 lim_inf <- media-valor_t*error_std
 lim_sup <- media+valor_t*error_std
 
