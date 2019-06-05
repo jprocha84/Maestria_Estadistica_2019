@@ -121,7 +121,7 @@
                         \caption{Proporción de sobrevida en fumadoras y \\no fumadoras}
                         \label{fig:figure1}
                     \end{figure}
-
+                    \FloatBarrier
                     \underline{\textbf{Test de independencia}} \\ \\
                     \textbf{Chi-cuadrado} = 9.1209 \\
                     \textbf{p-value} = 0.002527 \\ \\
@@ -180,7 +180,7 @@
                     \centering
                     \input{figs/fig2.tex}
                     \caption{Proporción de sobrevida en fumadoras y \\no fumadoras}
-                    \label{fig:figure1}
+                    \label{fig:figure2}
                 \end{figure}
                 \FloatBarrier
                 \textbf{Chi-cuadrado} = 0.0015576 \\
@@ -220,7 +220,7 @@
                     \centering
                     \input{figs/fig3.tex}
                     \caption{Proporción de sobrevida en fumadoras y \\no fumadoras}
-                    \label{fig:figure1}
+                    \label{fig:figure3}
                 \end{figure}
                 \FloatBarrier
                 \textbf{Chi-cuadrado} = 5.3152 \\
@@ -260,7 +260,7 @@
                     \centering
                     \input{figs/fig4.tex}
                     \caption{Proporción de sobrevida en fumadoras y \\no fumadoras}
-                    \label{fig:figure1}
+                    \label{fig:figure4}
                 \end{figure}
                 \FloatBarrier
                 \textbf{Chi-cuadrado} = 3.1723 \\
@@ -300,7 +300,7 @@
                     \centering
                     \input{figs/fig5.tex}
                     \caption{Proporción de sobrevida en fumadoras y \\no fumadoras}
-                    \label{fig:figure1}
+                    \label{fig:figure5}
                 \end{figure}
                 \FloatBarrier
                 \textbf{Chi-cuadrado} = 0.0015576 \\
@@ -312,6 +312,56 @@
             Observando las medidas de asociación y los gráficos, es posible concluir que la relación entre el hábito de fumar y sobrevivir es muy alta en las personas entre 35 a 64 años de edad. Especialmente en el rango de edad entre 35 a 54 años, las personas fumadoras tienen más chance de no sobrevivir.
 
         \item
+            Esquema Ahorro - Inversión - Financiamiento. Administración Pública Nacional. Valores mensuales. En millones de pesos. Metodología 2017  \\
+            Fuente de datos: \href{https://datos.gob.ar/dataset/sspm-esquema-ahorro---inversion---financimmiento-administracion-publica-nacional-base-caja/archivo/sspm_372.9}{datos.gob.ar} \\
+
+            Cantidad de registros: 51 observaciones \\
+            Datos mensuales desde 2015-01-01 al 2019-03-01. \\
+
+            \begin{table}[ht]
+                \centering
+                \caption{Resumen descriptivo de cada variable}
+                \begin{threeparttable}
+                    \begin{tabular}{|r|r|}
+                      \hline
+                      ing\_corr\_2017   & gtos\_corr\_2017 \\
+                      \hline
+                      Min.   : 69844    & Min.   : 71315   \\
+                      1st Qu.:106799    & 1st Qu.:108740   \\
+                      Median :144242    & Median :158267   \\
+                      Mean   :144937    & Mean   :164838   \\
+                      3rd Qu.:179648    & 3rd Qu.:193166   \\
+                      Max.   :252500    & Max.   :360150   \\
+                       \hline
+                    \end{tabular}
+                \end{threeparttable}
+            \end{table}
+
+
+            \begin{figure}[!htb]
+                \centering
+                \input{figs/fig6.tex}
+                \caption{Diagrama de dispersión de gastos e ingresos corrientes}
+                \label{fig:figure6}
+            \end{figure}
+
+            \textbf{Coeficiente de correlación de Pearson:} \\
+            $ r = 0.9059309 $ \\
+
+            \begin{figure}[!htb]
+                \centering
+                \input{figs/fig7.tex}
+                \caption{Diagrama de dispersión de rangos de gastos e ingresos corrientes}
+                \label{fig:figure7}
+            \end{figure}
+
+            \textbf{Coeficiente de correlación de Spearman:} \\
+            $ r_s = 0.9377376 $ \\
+
+
+            \textbf{Conclusión:}
+            Los coeficientes de correlación de Pearson y Spearman son cercanos a 1, lo cual muestra una fuerte asociación lineal positiva entre las variables de Gastos corrientes e Ingresos corrientes.
+
 
     \end{enumerate}
 

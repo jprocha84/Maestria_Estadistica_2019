@@ -404,6 +404,16 @@ INPUT figs/fig4.tex
 INPUT figs/fig4.tex
 INPUT figs/fig5.tex
 INPUT figs/fig5.tex
+INPUT figs/fig6.tex
+INPUT figs/fig6.tex
+INPUT figs/fig7.tex
+INPUT figs/fig7.tex
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/newtx/ntxmi.vf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/txmi.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/newtx/rntxmi.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/vf/public/txfonts/txmi.vf
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/rtxmi.tfm
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/txfonts/rtxptmri.tfm
 INPUT output/Rocha_4.aux
 INPUT output/Rocha_4.out
 INPUT output/Rocha_4.out

@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1559530757 "Rocha_4.tex" "output/Rocha_4.pdf" "Rocha_4" 1559530759
+["pdflatex"] 1559535137 "Rocha_4.tex" "output/Rocha_4.pdf" "Rocha_4" 1559535140
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1439157308 2880 847ca622ad468c3dafba6a3f9d89a636 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1422827479 2083 60e36f8eac802fcaf19eabe2633b406e ""
@@ -226,16 +226,18 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1471145832 1888048 f2c5faed5981a516f406b2ccc20bff71 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1471145890 3873397 f0e7e470ff30268245d66097db599b98 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "Rocha_4.tex" 1559530756 16264 aabb1cf2d7c1a9aa716cdf1aa2149e35 ""
+  "Rocha_4.tex" 1559535136 18519 a1e2135422e590c550f3991298c3bc40 ""
   "figs/fig1.tex" 1559456041 4321 1a2b29ffc8de296e095b89904d9e452e ""
   "figs/fig2.tex" 1559514384 4295 e29efe7b745ce75670e000e8c6b385aa ""
   "figs/fig3.tex" 1559514384 4295 4806de6b9d4ccf585b005517563f8276 ""
   "figs/fig4.tex" 1559514384 4295 f6630c7bd42742430bfd965fba3b7467 ""
   "figs/fig5.tex" 1559514384 4297 a0f4705306c1e28f78ec4fdfcf8181a6 ""
-  "output/Rocha_4.aux" 1559530758 3585 16e221db9e5d47905c97e0c5be5f11d2 ""
-  "output/Rocha_4.out" 1559530758 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "figs/fig6.tex" 1559532720 6356 a2a03bf1a55d4a011692c0a7ba44c442 ""
+  "figs/fig7.tex" 1559534331 10193 20d3da238799764a2f87936d0119fca6 ""
+  "output/Rocha_4.aux" 1559535139 4312 24691463469345e2531b0b2a0390ba24 ""
+  "output/Rocha_4.out" 1559535138 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
   "output/Rocha_4.out"
   "output/Rocha_4.log"
-  "output/Rocha_4.pdf"
   "output/Rocha_4.aux"
+  "output/Rocha_4.pdf"

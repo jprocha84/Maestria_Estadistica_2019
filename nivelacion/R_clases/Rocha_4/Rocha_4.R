@@ -166,3 +166,38 @@ legend("topright",legend=rownames(tabla.prop),
 dev.off()
 #Test de independencia
 (test.chi<-chisq.test(mx_estudio, correct=F))
+
+
+# Ejercicio Nro 2
+#Fuentes: https://datos.gob.ar/dataset/sspm-esquema-ahorro---inversion---financimmiento-administracion-publica-nacional-base-caja/archivo/sspm_372.9
+#Esquema Ahorro - Inversión - Financiamiento. Administración Pública Nacional. Valores mensuales 2017. En millones de pesos.
+apn_valores_mensuales = read.csv('administracion-publica-nacional-valores-mensuales-17.csv')
+df_apn_valores_mensuales = apn_valores_mensuales[,c('ing_corr_2017', 'gtos_corr_2017')]
+
+summary_table = summary(df_apn_valores_mensuales)
+print(xtable(summary_table, type = "latex"), file = "output.tex")
+
+tikz('fig6.tex',width=3.5,height=3.5) 
+#Diagrama de dispersión entre acceso a internet y uso de facebook
+plot(df_apn_valores_mensuales$ing_corr_2017, 
+     df_apn_valores_mensuales$gtos_corr_2017, 
+     main="Diagrama de dispersión", xlab="Ingresos corrientes", ylab="Gastos corrientes", col="blue", pch=16)
+#Para añadir la recta de regresión estimada:
+abline(lm(df_apn_valores_mensuales$ing_corr_2017 ~ df_apn_valores_mensuales$gtos_corr_2017), col="red") 
+dev.off()
+
+#Cálculo del coeficiente de correlación de Pearson:
+(cor(df_apn_valores_mensuales$ing_corr_2017 , df_apn_valores_mensuales$gtos_corr_2017))
+
+#Gráfico de dispersión entre los rangos asignados a X e Y:
+tikz('fig7.tex',width=3.5,height=3.5) 
+plot(rank(df_apn_valores_mensuales$ing_corr_2017), rank(df_apn_valores_mensuales$gtos_corr_2017), 
+     pch=19, xlab="Rango(Ingresos corrientes)", ylab="rango(Gastos corrientes)",
+     main="Gráfico de dispersión - Rangos") 
+dev.off()
+#coeficiente de correlación de Spearman:
+cor(rank(df_apn_valores_mensuales$ing_corr_2017), rank(df_apn_valores_mensuales$gtos_corr_2017))
+
+
+
+
